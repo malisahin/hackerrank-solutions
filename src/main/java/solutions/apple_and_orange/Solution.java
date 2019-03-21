@@ -12,12 +12,6 @@ public class Solution {
         //  startPoint  <= locA + fallPosition <= endPoint
         //  startPoint  <= locB + fallPosition <= endPoint
 
-       /* for (int fallPosition : appleFallPositions) {
-            int appleXAxisPosition = locA + fallPosition;
-            if (startPoint <= appleXAxisPosition && appleXAxisPosition <= endPoint) {
-                capturedApples += 1;
-            }
-        }*/
         int capturedApples = captureFruits(locA, startPoint, endPoint, appleFallPositions);
         int capturedOranges = captureFruits(locB, startPoint, endPoint, orangesFallPositions);
         System.out.println(capturedApples);
@@ -28,8 +22,8 @@ public class Solution {
     private static int captureFruits(int location, int startPoint, int endPoint, int[] fallPositions) {
         int captures = 0;
         for (int fallPosition : fallPositions) {
-            int appleXAxisPosition = location + fallPosition;
-            if (startPoint <= appleXAxisPosition && appleXAxisPosition <= endPoint) {
+            int fruitXAxisPosition = location + fallPosition;
+            if (startPoint <= fruitXAxisPosition && fruitXAxisPosition <= endPoint) {
                 captures += 1;
             }
         }
