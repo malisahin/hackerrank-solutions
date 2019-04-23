@@ -6,23 +6,36 @@ package data_structures.arrays.array_manipulation;
  */
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Solution {
 
     // Complete the arrayManipulation function below.
     static long arrayManipulation(int n, int[][] queries) {
-        int[] array = new int[n];
-        Arrays.stream(queries).map(query -> {
-            int from = query[0] - 1;
-            int to = query[1] - 1;
-            int value = query[2];
-            for (int i = from; i <= to; i++) {
-                array[i] += value;
-            }
-            return 1;
-        }).count();
-        return Arrays.stream(array).max().getAsInt();
+
+        long outputArray[] = new long[n + 2];
+        for (int i = 0; i < queries.length; i++) {
+            int a = queries[i][0];
+            int b = queries[i][1];
+            int k = queries[i][2];
+            outputArray[a] += k;
+            outputArray[b+1] -= k;
+        }
+        long max = getMax(outputArray);
+        return max;
+    }
+
+    /**
+     * @param inputArray
+     * @return
+     */
+    private static long getMax(long[] inputArray) {
+        long max = Long.MIN_VALUE;
+        long sum = 0;
+        for (int i = 0; i < inputArray.length; i++) {
+            sum += inputArray[i];
+            max = Math.max(max, sum);
+        }
+        return max;
     }
 
 
