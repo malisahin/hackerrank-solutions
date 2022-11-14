@@ -5,3 +5,4 @@ An arcade game player wants to climb to the top of the leaderboard and track the
 + Players who have equal scores receive the same ranking number, and the next player(s) receive the immediately following ranking number.
 
 [https://www.hackerrank.com/challenges/climbing-the-leaderboard](https://www.hackerrank.com/challenges/climbing-the-leaderboard)
+

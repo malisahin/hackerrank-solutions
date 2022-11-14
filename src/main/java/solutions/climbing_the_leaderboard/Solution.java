@@ -17,12 +17,20 @@ public class Solution {
 
 
     public static int findRank(List<Integer> sorted, Integer score) {
-        for (int i = 0; i < sorted.size(); i++) {
-            if (score >= sorted.get(i)) {
-                return i + 1;
+        for (int i = 0; i < sorted.size(); i++){
+            int min = 0;
+            int max = sorted.size();
+            while (max > min){
+                int mid = (min + max) / 2;
+                if (sorted.get(mid) <= score)
+                    max = mid;
+                else
+                    min = mid + 1;
             }
+            return min + 1;
         }
         return sorted.size() + 1;
+
     }
 
     public static List<Integer> sorting(List<Integer> ranked) {
